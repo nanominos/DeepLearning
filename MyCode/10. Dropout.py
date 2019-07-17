@@ -4,6 +4,10 @@
 # 가중치의 균형을 잡도록 하여 과적합을 방지한다.
 # 다만, 학습 시 일부 뉴런을 학습시키지 않기 때문에 신경망이 충분히 학습되기까지의 시간은 조금 더 오래걸리는 편이다.
 
+# 최근에는 배치 정규화(Batch Normalization)이라는 기법이 많이 이용되는데,
+# 이 기법은 과적합을 막아줄 뿐 아니라 학습 속도도 향상시켜 주는 장점이 있다.
+# 자세한 내용은 https://goo.gl/hRG0lr
+# tf.layers.batch_normalization(L1, training=is_training)
 
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
