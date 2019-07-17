@@ -62,6 +62,9 @@ sess.run(init)
     MNIST의 경우 학습 데이터 6만개 테스트 데이터 1만개로 구성되어있다.
     Tensorflow를 사용한다면, mnist.train , mnist.test 로 사용할 수 있다.
 '''
+print("W3", W3)
+print("MODEL", model)
+print("MODEL RUN", sess.run(model, feed_dict={X: mnist.test.images, Y: mnist.test.labels})[0])
 
 batch_size = 100
 total_batch = int(mnist.train.num_examples / batch_size)
@@ -87,7 +90,8 @@ is_correct = tf.equal(tf.argmax(model, 1), tf.argmax(Y, 1))
 # 학습 결과 비교
 # 예측한 결과값은 원-핫 인코딩 형식으로 각 argmax를 통해 가장 큰 값의 인덱스를 뱉는다.
 accuracy = tf.reduce_mean(tf.cast(is_correct, tf.float32))
-
+print("ISCORRECT", is_correct)
+print("ISCORRECT RUN", sess.run(is_correct, feed_dict={X: mnist.test.images, Y: mnist.test.labels}))
 print("정확도 : ", sess.run(accuracy, feed_dict={X: mnist.test.images, Y: mnist.test.labels}))
 
 
